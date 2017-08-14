@@ -65,7 +65,7 @@ window.renderStatistics = function (ctx, names, times) {
         if (names[i].indexOf('Вы') != -1) {
             ctx.fillStyle = playerColor;
         } else {
-            ctx.fillStyle = 'rgba(0, 0, 255,' + (Math.random() * 0.9 + 0.1) + ')';
+            ctx.fillStyle = 'rgba(0, 0, 255,' + (Math.random() * 0.9 + 0.1).toFixed(1) + ')';
         }
         colHeight = -(histogramHeight * times[i] / max);
         ctx.fillRect(initialX + colWidth * i + colDistanse * i, initialY, colWidth, colHeight);
