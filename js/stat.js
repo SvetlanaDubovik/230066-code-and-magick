@@ -46,11 +46,14 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText('Ура вы победили!', 170, 40);
     ctx.fillText('Список результатов:', 170, 60);
 
-    var max = -1,
-        colWidth = 40,
-        colDistanse = 50,
-        playerColor = 'rgba(255, 0, 0, 1)',
-        colHeight = 0;
+    var max = -1;
+    var colWidth = 40;
+    var colDistanse = 50;
+    var playerColor = 'rgba(255, 0, 0, 1)';
+    var colHeight = 0;
+    var initialX = 190;
+    var initialY = 250;
+    var histogramHeight = 150;
 
     for (i = 0; i < times.length; i++) {
         if (times[i] > max) {
@@ -64,11 +67,11 @@ window.renderStatistics = function (ctx, names, times) {
         } else {
             ctx.fillStyle = 'rgba(0, 0, 255,' + (Math.random() * 0.9 + 0.1) + ')';
         }
-        colHeight = -(150 * times[i] / max);
-        ctx.fillRect(190 + colWidth * i + colDistanse * i, 250, 40, colHeight);
+        colHeight = -(histogramHeight * times[i] / max);
+        ctx.fillRect(initialX + colWidth * i + colDistanse * i, initialY, colWidth, colHeight);
         ctx.fillStyle = '#000';
-        ctx.fillText(names[i], 190 + colWidth * i + colDistanse * i, 270);
-        ctx.fillText(Math.round(times[i]), 190 + (colWidth + colDistanse) * i, 240 + colHeight);
+        ctx.fillText(names[i], initialX + colWidth * i + colDistanse * i, initialY + 20);
+        ctx.fillText(Math.round(times[i]), initialX + (colWidth + colDistanse) * i, initialY - 10 + colHeight);
 
     }
 };
