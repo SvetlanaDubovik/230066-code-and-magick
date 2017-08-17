@@ -42,6 +42,7 @@
         for (var i = 0; i < arrWizards.length; i++) {
             fragment.appendChild(renderWizzard(arrWizards[i]));
         }
+        similarListElement.textContent = '';
         similarListElement.appendChild(fragment);
     };
 
